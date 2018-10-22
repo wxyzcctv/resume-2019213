@@ -15,6 +15,13 @@ hr{
     border: none;
     border-top: 1px solid #dedede;
 }
+ul,ol{
+    list-style: none;
+}
+h1,h2,h3,h4,h5,h6{
+    font-weight: normal;
+    /* 标题不加粗 */
+}
 .clearfix::after{
     content: '';
     display: block;
@@ -34,6 +41,7 @@ hr{
     top: 0px;
     left: 0px;
     width: 100%;
+    border: 1px solid red;
 }
 .topNavBar nav > ul > li{
     float:left;
@@ -85,11 +93,11 @@ hr{
     background-color: rgba(0,0,0,0.8);
 }
 .userCard{
-    border: 1px solid red;
     max-width: 940px;
     margin-left: auto;
     margin-right: auto;
     background-color: #ffff;
+    box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.5);
 }
 .userCard .welcome{
     color: white;
@@ -166,4 +174,169 @@ hr{
     fill: white;  
     vertical-align: top;
     position: 
+}
+body > main{
+    margin-top:-350px;
+}
+body > main .downloadResume-wrapper{
+    text-align: center;
+    
+}
+body > main .downloadResume{
+    font-size: 14px;
+    line-height: 16px;
+    padding: 21px 55px;
+    border: 1px solid#cdcfd1;
+    background: #efefef; 
+    display: inline-block;
+    border-radius:2px;
+    color: #3d4451;
+    font-weight: bold;
+    margin: 32px 0px; 
+    transition: box-shadow 0.5s;
+}
+body > main .downloadResume:hover{
+    box-shadow: 0px 3px 15px 0px rgba(0,0,0,0.2);
+}
+.selfIntroduction{
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-family: cursive;
+    line-height: 1.8;
+    font-size: 18px;
+}
+section.skills,
+section.portfolio{  /* 这样子写表示的是技能和作品集都是同样的样式 */
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+}
+section.skills > h2,
+section.portfolio > h2{     /* 注意：千万不能再“{”前面有逗号，否则会有很多错误 */
+    text-align: center;
+    color: #3d4451;
+    font-size: 34px;
+    line-height: 1.2;
+    font-weight: 600;
+}
+section.skills > h3{
+    font-size: 14px;
+    line-height: 1.1;
+    padding-right: 40px;
+}
+section.skills > ol{
+    background-color: #ffff;
+    box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.5);
+    padding: 42px 50px 10px;
+    margin: 30px;
+}
+section.skills > ol > li{
+    float: left;
+    width:48%;
+    float: left;
+    /* box-sizing: border-box;    */
+    /*width:50%; 时，border是算在50%里面的，padding是在border里面的，这时整体宽度是50%*/
+    /*宽度和padding是分开的，不能直接加padding*/
+    /* padding-right: 10px; */
+    /* 这样添加会出现所有的li都会出现右边多出10px来不满足要求 */
+}
+section.skills > ol > li:nth-child(even){
+    float: right;
+    /* 此段表示的是在所有的li中，选中第偶数个的li进行操作，如果想要选中技术的li：even-->odd 
+    此时配合上面设置的所有li都左浮，偶数的li右浮，这时就会出现左边的靠左，右边的靠右*/
+}
+section.skills .progressBar{
+    height: 5px;
+    background: #fae1e1;
+    border-radius: 2px;  /* 圆角 */
+    margin: 4px 0 40px;  /* 上面是4像素，下面是40像素 */
+    /* 这一个是进度条 */
+}
+section.skills .progressBar > .progress{
+    height: 100%;
+    background: #e66b6a;
+    width: 70%;
+    /* 这一个是进度条内部的那个条，只有70%的长度，宽度设置为100%，嵌套在进度条里面，
+    所以就会是进度条的宽度 */
+}
+section.portfolio{
+    text-align: center;
+    margin-bottom: 100px;
+}
+section.portfolio > nav{
+    text-align: center;
+}
+section.portfolio > nav > ol{
+    margin: 0 auto;
+    display: inline-block;
+    /* 加了这一句之后一定要加上下面这一句，不然就会出现bug，
+    这个bug就是在显示的的小框下面会有一个小的空隙*/
+    vertical-align: top;
+    /* 加上这些语句之后显示的内容并没有真正的居中，这个时候就需要使用到下面的li:nth-child(1)，
+    将第一个显示的元素的margin-left设置为0px就行了，用0覆盖了section.portfolio > nav > ol > li
+    中的margin-left的值 */
+}
+/* 以上是将下面显示的这一段文字在界面中进行居中，下面这一段是左浮的，
+不能将左浮的居中，而应该是将左浮的元素的父类进行居中 */
+section.portfolio > nav > ol > li{
+    float: left;
+    margin-left: 40px;
+    cursor: pointer;    /* 这一句的主要意思就是将鼠标变为手型的图标 */
+    
+}
+section.portfolio > nav > ol > li:nth-child(1){
+    margin-left: 0px;
+}
+/* section.portfolio > nav > ol > li:first-child和上面的nth-child(1)是一样的 */
+section.portfolio > nav{
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 32px;
+}
+/* bar默认是和nav一样宽，让nav往内缩，而nav默认是和section一样宽，
+这个时候就得让nav的属性为display：inline-block，
+这个时候还需要设置section.portfolio的属性为text-align: center;进行居中 */
+section.portfolio > nav >.bar{
+    height: 5px;
+    background: white;
+    margin-top: 5px;
+    margin-bottom: 28px;
+    border-radius: 2px;
+}
+section.portfolio > nav .bar-inner{
+    height: 100%;
+    background: #e66b6a;
+    width: 10%;
+    border-radius: 2px;
+    margin-left: 140px;
+    transition: all 0.3s;  /* 这一句的主要功能是将所有的变化都变为0.3秒 */
+}
+section.portfolio > nav .bar.state-1 .bar-inner{
+    margin-left: 0;
+    width: 50px;
+}
+section.portfolio > nav .bar.state-2 .bar-inner{
+    margin-left: 65px;
+    width: 50px;
+}
+section.portfolio > nav .bar.state-3 .bar-inner{
+    margin-left: 140px;
+    width: 96px;
+}
+/* 以上三段实现的是点击三个不同的按钮就会出现不同的效果，这一部分是属于js的内容，
+这里主要设置的是通过设置state来实现的，在html中编写点击跳转的代码 */
+section.portfolio .works{
+    position: relative;
+}
+section.portfolio .works .big,
+section.portfolio .works .small{
+    position: absolute;
+}
+/* 以上两段实现的是图片的布局，这里是固定位置的形式来布局的，主要就是通过设置宽高等参数，
+这个works是位于portfolio中的，所以，works是居中的。 */
+.f1 .f2{
+
 }
