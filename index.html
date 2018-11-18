@@ -5,38 +5,72 @@
 	<link rel="stylesheet" href="./a.css">
 	<script src="//at.alicdn.com/t/font_881797_9ahi3eg5y0k.js"></script>
 	<style type="text/css">
+	.loading{width:200px;height:200px;position:relative;}
+	.loading::after,.loading::before{content:'';position:absolute;border:1px solid black;width:0px;height:0px;background:black;border-radius:50%;top:0;bottom:0;left:0;right:0;margin: auto;animation: s 1.5s infinite linear;}
+	.loading::after{animation-delay:0.8s;}
+  
+	@keyframes s{
+		0%{width:0px;height:0px; opacity:1;}
+		100%{width:100px;height:100px; opacity:0;}
+	}
 		.icon {
 		   width: 1em; height: 1em;
 		   vertical-align: -0.15em;
 		   fill: currentColor;
 		   overflow: hidden;
 		}
+		/* 以上的script和style是为了引入GitHub，微博等平台的小图标 */
+		.site-welcome{
+			display: none;
+			position: fixed;
+			top: 0; left: 0; width: 100%; height: 100%;
+			background: #888;
+			z-index: 1;
+			justify-content: center;
+			align-items: center;
+			/* 两个center就能实现加载的图标居中 */
+		}
+		.site-welcome.active{
+			display: flex;
+		}
 	</style>
-	<!-- 以上的script和style是为了引入GitHub，微博等平台的小图标 -->
   </head>
 
   <body> 
-	  <div class="topNavBar">
+	  <div id="siteWelcome" class="site-welcome active">
+		<div class="loading"></div>
+	  </div>
+	  <div id= topNavBar class="topNavBar">
 		  <div class="topNavBar-inner clearfix">
 				<a class="logo" href="#" alt="logo" style="float:left;">
 						<span class="rs">RS</span><span class="card">card</span>
 				</a>
-				<nav style="float: right;">
+				<nav class="menu" style="float: right;">
 					<ul class="clearfix">
 						<li>
-							<a href="#">关于</a>
+							<a href="#siteAbout">关于</a>
 						</li>
 						<li>
-							<a href="#">技能</a>
+							<a href="#siteSkills">技能</a>
 						</li>
 						<li>
 							<a href="#">经验</a>
 						</li>
 						<li>
-							<a href="#">作品</a>
+							<a href="#siteWorks"><span>作品</span></a>
+							<ul class="submenu">
+								<li>作品1</li>
+								<li>作品2</li>
+								<li>作品3</li>
+							</ul>
 						</li>
 						<li>
 							<a href="#">博客</a>
+							<ul class="submenu">
+								<li>博客1</li>
+								<li>博客2</li>
+								<li>博客3</li>
+							</ul>
 						</li>
 						<li>
 							<a href="#">日历</a>
@@ -55,7 +89,7 @@
 		  <div class="mask"></div>
 	  </div>
 	  <main style="">
-	  <div class="userCard">
+	  <div id="siteAbout" class="userCard">
 		<div class="pictureAndText clearfix">
 			<div class="picture">
 					<img src="./avatart.jpg" width="299" height="347" alt="头像">
@@ -106,7 +140,7 @@
 	     技能：前端开发。
 	  </p>
 	  </main>
-	  <section class="skills">
+	  <section id="siteSkills" class="skills">
 		  <h2>技能</h2>
 		  <ol class="clearfix">
 			<li>
@@ -159,7 +193,7 @@
 			</li>
 		  </ol>
 	  </section>
-	  <section class="portfolio">
+	  <section id="siteWorks" class="portfolio">
 		  <h2>作品集</h2>
 		  <nav>
 			  <ol class="clearfix">
@@ -194,5 +228,56 @@
 			  </div>
 		  </div>
 	  </section>
+	  <script>
+		//   添加一个延时，使得能够出现加载图标，此处延时时间是1秒
+		  setTimeout(function(){
+			siteWelcome.classList.remove('active')
+		  },1000)
+		//   窗口滚动的时候获取一个函数
+		  window.onscroll = function(){
+			  if(window.scrollY > 0){
+				//   窗口滚动的时候获得一个高度
+				topNavBar.classList.add('sticky');
+			  }else{
+				  topNavBar.classList.remove('sticky')
+			  }
+		  }
+		  let liTags = document.querySelectorAll('nav.menu > ul > li')
+		//   上面这一句是为了获得某一个特定的标签
+		// document.querySelectorAll，接收一个选择器，返回该选择器对应的所有的元素
+		  for(let i=0; i<liTags.length; i++){
+			  liTags[i].onmouseenter = function(x){
+				// onmouseenter，当鼠标进入某一个元素的时候会触发一个函数
+				  x.currentTarget.classList.add('active')
+			  }
+			  liTags[i].onmouseleave = function(x){
+				// onmouseleave，当鼠标离开一个元素的时候会触发一个函数
+				x.currentTarget.classList.remove('active')
+			  }
+		  }
+		  let aTags = document.querySelectorAll('nav.menu > ul > li > a')
+		  for(let i=0; i<aTags.length; i++){
+			aTags[i].onclick = function(x){
+				x.preventDefault()
+				// 阻止浏览器执行a标签的默认跳转
+				let a = x.currentTarget
+				// a.getAttribute('href')
+				// 上面这一句得到的只是a标签中所写的href的值
+				let href = a.getAttribute('href')
+				
+				let element = document.querySelector(href)
+				// 只会获取选择器的的第一个元素，并不是所有的元素
+				// 在成功获取锚点之后，通过这个锚点来得到这个元素
+				let top = element.offsetTop
+				// 得到元素距离页面顶部的绝对距离，这个距离不会随着页面的滑动而发生改变
+				// 在得到锚点定位的元素之后就得到距离页面最上面的绝对距离，从而能进行页面的跳转
+				window.scrollTo(0, top-80)
+				// window.scrollTo()实现的是页面的跳转，其中主要有两个参数可以设置
+				// 第一个参数是左右的移动距离，第二个参数就是上下的距离
+				// console.log(a.href)
+				// 上面这一句是直接得到经过浏览器处理的a的href的地址，前面是带有http前缀的
+			}
+		  }
+	  </script>
   </body>
 </html>
