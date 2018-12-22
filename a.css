@@ -83,6 +83,7 @@ h1,h2,h3,h4,h5,h6{font-weight: normal;/* 标题不加粗 */}
 .userCard > footer.media > a{display: inline-block;width: 40px;line-height: 30px;padding: 5px 0;border-radius: 50px;margin: 16px;}
 .userCard > footer.media > a:hover{background: #D96164;}
 .userCard svg{width: 30px;height: 30px;fill: white; vertical-align: top;position:}
+.icon {width: 1em; height: 1em;vertical-align: -0.15em;fill: currentColor;overflow: hidden;}
 
 body > main{margin-top:-350px;}
 body > main .downloadResume-wrapper{text-align: center;}
