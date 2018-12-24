@@ -38,7 +38,7 @@
             this.bindEvents()
         },
         loadMessages:function(){
-            this.model.fetch.then( (messages)=>{
+            this.model.fetch().then( (messages)=>{
                 let array = messages.map((item)=>item.attributes)
                 // 上面这一句得到的是数组中attributes中的内容
                 array.forEach((item)=>{
@@ -50,14 +50,13 @@
             )
         },
         bindEvents:function(){
-
-            this.form.addEventListener('submit',function(e){
+            this.form.addEventListener('submit',(e)=>{
             // 监听提交事件就能防止在提交过程中只是通过点击按钮提交，还可以通过点击回车进行提交
             e.preventDefault()    //这一句是为了阻止点击按钮的时候网页自动进行刷新
             this.saveMessage()
-        })
+            })
         },
-        saveMessage:function(){
+        saveMessage: function(){
             let myForm = this.form
             let content = myForm.querySelector('input[name=content]').value
             let name = myForm.querySelector('input[name=name]').value
@@ -67,13 +66,12 @@
                 //下面的内是当不需要刷新页面的时候就显示存在的内容的时候就是用下面的设置
                 let li = document.createElement('li')
                 li.innerText = `${object.attributes.name}:${object.attributes.content}`
-                let messagaList = document.querySelector('#messageList')
+                let messageList = document.querySelector('#messageList')
                 messageList.appendChild(li)
                 myForm.querySelector('input[name=content]').value = ''
                 console.log(content)
             })
         },
-
     }
     controller.init(view,model)
 }.call()
