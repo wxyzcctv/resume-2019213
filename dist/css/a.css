@@ -1,0 +1,364 @@
+@charset "UTF-8";
+body {
+  background: #efef;
+  margin: 0; }
+
+a {
+  text-decoration: none;
+  color: inherit; }
+
+* {
+  margin: 0px;
+  padding: 0px; }
+
+hr {
+  height: 0;
+  border: none;
+  border-top: 1px solid #dedede; }
+
+ul, ol {
+  list-style: none; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  /* 标题不加粗 */ }
+
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both; }
+
+[data-x].active {
+  outline: 10px solid red; }
+
+[data-x].offset {
+  transform: translateY(80px); }
+
+[data-x] {
+  transform: translateY(0px);
+  transition: all 0.5s; }
+
+.topNavBar-inner {
+  padding: 0 16px; }
+
+.topNavBar {
+  padding: 20px 0px 20px 0px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  transition: all 0.5s;
+  color: #b7b7b7; }
+
+.topNavBar.sticky {
+  background: white;
+  padding: 10px;
+  color: #3d4451;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  z-index: 1; }
+
+.topNavBar nav {
+  padding-top: 8px; }
+  .topNavBar nav > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+    .topNavBar nav > ul > li {
+      float: left;
+      margin-left: 17px;
+      margin-right: 17px;
+      position: relative; }
+      .topNavBar nav > ul > li > a {
+        font-size: 12px;
+        color: inherit;
+        text-decoration: none;
+        font-weight: bold;
+        border-top: 3px solid transparent;
+        border-bottom: 3px solid transparent;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        display: block;
+        position: relative; }
+
+.topNavBar nav > ul > li.active > a::after,
+.topNavBar nav > ul > li.highlight > a::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #e06567;
+  animation: menuSlide 0.3s; }
+
+@keyframes menuSlide {
+  0% {
+    width: 0; }
+  100% {
+    width: 100%; } }
+
+.topNavBar .submenu {
+  display: none;
+  position: absolute;
+  right: 0;
+  /* 右对齐 */
+  top: 100%;
+  background: white;
+  color: #3d4451;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); }
+
+.topNavBar li.active .submenu {
+  display: block;
+  animation: submenuSlide 0.3s; }
+
+@keyframes submenuSlide {
+  0% {
+    margin-right: 100%; }
+  100% {
+    margin-right: 0; } }
+
+.topNavBar .submenu > li {
+  white-space: nowrap;
+  padding: 5px 10px;
+  /* 子菜单中的元素的间距 */ }
+
+.topNavBar .logo {
+  font-size: 24px;
+  font-family: "Arial Black";
+  padding-top: 3px;
+  padding-bottom: 4px; }
+
+.topNavBar .logo .rs {
+  margin-right: 4px;
+  color: #e6686a; }
+
+.topNavBar .logo .card {
+  color: #9a9da2; }
+
+.banner {
+  background-image: url(../img/rs-cover.jpg);
+  height: 515px;
+  background-position: center center;
+  background-size: cover; }
+
+.banner .mask {
+  height: 515px;
+  background-color: rgba(0, 0, 0, 0.8); }
+
+.userCard {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #ffff;
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5); }
+
+.userCard .welcome {
+  color: white;
+  background: #e6686a;
+  display: inline-block;
+  padding: 4px 16px;
+  line-height: 22px;
+  position: relative; }
+
+.userCard .welcome .triangle {
+  display: block;
+  border: 10px solid transparent;
+  width: 0px;
+  border-left-color: #e66b6a;
+  border-top-width: 0px;
+  position: absolute;
+  left: 4px;
+  top: 100%; }
+
+.userCard .picture {
+  float: left; }
+
+.userCard .text {
+  float: left;
+  margin-left: 65px;
+  width: 470px; }
+
+.userCard .text h1 {
+  margin-top: 18px; }
+
+.userCard .text p {
+  margin-top: 6px; }
+
+.userCard .text hr {
+  margin: 20px 0px; }
+
+.userCard .pictureAndText {
+  padding: 50px; }
+
+.userCard dl dt,
+.userCard dl dd {
+  float: left;
+  padding: 5px 0; }
+
+.userCard dl dt {
+  width: 30%;
+  font-weight: bold; }
+
+.userCard dl dd {
+  width: 70%;
+  color: #9da0a7; }
+
+.userCard > footer.media {
+  background: #e6685a;
+  text-align: center; }
+
+.userCard > footer.media > a {
+  display: inline-block;
+  width: 40px;
+  line-height: 30px;
+  padding: 5px 0;
+  border-radius: 50px;
+  margin: 16px; }
+
+.userCard > footer.media > a:hover {
+  background: #D96164; }
+
+.userCard svg {
+  width: 30px;
+  height: 30px;
+  fill: white;
+  vertical-align: top; }
+
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden; }
+
+body > main {
+  margin-top: -350px; }
+
+body > main .downloadResume-wrapper {
+  text-align: center; }
+
+body > main .downloadResume {
+  font-size: 14px;
+  line-height: 16px;
+  padding: 21px 55px;
+  border: 1px solid #cdcfd1;
+  background: #efefef;
+  display: inline-block;
+  border-radius: 2px;
+  color: #3d4451;
+  font-weight: bold;
+  margin: 32px 0px;
+  transition: box-shadow 0.5s; }
+
+body > main .downloadResume:hover {
+  box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.2); }
+
+.selfIntroduction {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-family: cursive;
+  line-height: 1.8;
+  font-size: 18px; }
+
+section.skills,
+section.portfolio {
+  /* 这样子写表示的是技能和作品集都是同样的样式 */
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px; }
+
+section.message > h2,
+section.skills > h2,
+section.portfolio > h2 {
+  /* 注意：千万不能再“{”前面有逗号，否则会有很多错误 */
+  text-align: center;
+  color: #3d4451;
+  font-size: 34px;
+  line-height: 1.2;
+  font-weight: 600; }
+
+section.skills > h3 {
+  font-size: 14px;
+  line-height: 1.1;
+  padding-right: 40px; }
+
+section.skills > ol {
+  background-color: #ffff;
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5);
+  padding: 42px 50px 10px;
+  margin: 30px; }
+
+section.skills > ol > li {
+  float: left;
+  width: 48%;
+  float: left;
+  /* box-sizing: border-box;    */
+  /*width:50%; 时，border是算在50%里面的，padding是在border里面的，这时整体宽度是50%*/
+  /*宽度和padding是分开的，不能直接加padding*/
+  /* padding-right: 10px; */
+  /* 这样添加会出现所有的li都会出现右边多出10px来不满足要求 */ }
+
+section.skills > ol > li:nth-child(even) {
+  float: right;
+  /* 此段表示的是在所有的li中，选中第偶数个的li进行操作，如果想要选中技术的li：even-->odd 
+    此时配合上面设置的所有li都左浮，偶数的li右浮，这时就会出现左边的靠左，右边的靠右*/ }
+
+section.skills .progressBar {
+  height: 5px;
+  background: #fae1e1;
+  border-radius: 2px;
+  /* 圆角 */
+  margin: 4px 0 40px;
+  overflow: hidden;
+  /* 上面是4像素，下面是40像素 */
+  /* 这一个是进度条 */ }
+
+section.skills .progressBar > .progress {
+  height: 100%;
+  background: #e66b6a;
+  width: 70%;
+  transform: translateX(0);
+  transition: all 1s;
+  /* 这一个是进度条内部的那个条，只有70%的长度，宽度设置为100%，嵌套在进度条里面，所以就会是进度条的宽度*/ }
+
+section.skills.offset .progressBar > .progress {
+  transform: translateX(-100%);
+  /* 实现的是在页面移动到指定的技能区域的时候，对应的进度条最开始是没有的，但是移动到位之后就会出现，通过transform：translateX实现的 */ }
+
+section.portfolio {
+  text-align: center;
+  margin-bottom: 100px;
+  max-width: 720px; }
+
+section.portfolio h2 {
+  margin-bottom: 32px; }
+
+section.portfolio .swiper-container {
+  width: 668px;
+  height: 501px; }
+
+.swiper-button-prev, .swiper-button-next {
+  background-color: white;
+  width: 64px;
+  height: 64px;
+  right: 100%;
+  left: auto;
+  border-radius: 50%; }
+
+.swiper-button-next {
+  left: 100%;
+  right: auto; }
+
+section.message > ol {
+  max-width: 700px;
+  margin: 0 auto;
+  border-top: 1px solid #ddd;
+  background: #f4f4f4; }
+
+section.message > ol > li {
+  padding: 16px;
+  border-bottom: 1px solid #ddd; }

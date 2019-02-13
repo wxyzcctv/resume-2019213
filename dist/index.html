@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>我的个人简历</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.5/css/swiper.min.css">
+	<link rel="stylesheet" href="./css/a.css">	
+	<script src="//at.alicdn.com/t/font_881797_9ahi3eg5y0k.js"></script>
+
+  </head>
+
+  <body> 
+	  <div id="siteWelcome" class="site-welcome active">
+		<div class="loading"></div>
+	  </div>
+	  <div id= topNavBar class="topNavBar">
+		  <div class="topNavBar-inner clearfix">
+				<a class="logo" href="#" alt="logo" style="float:left;">
+						<span class="rs">RS</span><span class="card">card</span>
+				</a>
+				<nav class="menu" style="float: right;">
+					<ul class="clearfix">
+						<li>
+							<a href="#siteAbout">关于</a>
+						</li>
+						<li>
+							<a href="#siteSkills">技能</a>
+						</li>
+						<li>
+							<a href="#">经验</a>
+						</li>
+						<li>
+							<a href="#siteWorks"><span>作品</span></a>
+							<ul class="submenu">
+								<li>作品1</li>
+								<li>作品2</li>
+								<li>作品3</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">博客</a>
+							<ul class="submenu">
+								<li>博客1</li>
+								<li>博客2</li>
+								<li>博客3</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">日历</a>
+						</li>
+						<li>
+							<a href="#">联系方式</a>
+						</li>
+						<li>
+							<a href="#">其他</a>
+						</li>
+						</ul>
+					</nav>
+		  </div>
+      </div>
+	  <div class="banner">
+		  <div class="mask"></div>
+	  </div>
+		<main style="">
+	  <div data-x id="siteAbout" class="userCard">
+		<div class="pictureAndText clearfix">
+			<div class="picture">
+					<img src="./img/avatart.jpg" width="299" height="347" alt="头像">
+			</div>
+			<div class="text">
+				<span class="welcome">
+					Hello
+				<span class=triangle></span>
+				</span>
+				<h1>小五</h1>
+					<p>前端开发工程师</p>
+					<hr>
+				<dl>
+					<dt>年龄</dt>
+					<dd>18</dd>
+					<dt>所在城市</dt>
+					<dd>上海</dd>
+					<dt>电话</dt>
+					<dd>136123456789</dd>
+					<dt>邮箱</dt>
+					<dd>2846629226@qq.com</dd>
+				</dl>
+			</div>
+		</div>
+		<footer class="media">
+			<a href="#">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#icon-github"></use>
+				</svg>
+			</a>
+			<a href="#">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#icon-weibo"></use>
+				</svg>
+			</a>
+			<a href="#">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#icon-twitter"></use>
+				</svg>
+			</a>
+		</footer>	  
+	</div>
+	<p class="downloadResume-wrapper">
+		<a class="downloadResume" href="./resume.pdf" download>下载PDF简历</a>
+	</p>
+	  <p class="selfIntroduction">
+	  wxyzcctv，资深前端工程师。<br>
+	     技能：前端开发。
+	  </p>
+	  </main>
+	  <section data-x id="siteSkills" class="skills">
+		  <h2>技能</h2>
+		  <ol class="clearfix">
+			<li>
+				<h3>
+					HTML 5 &amp; CSS 3
+				</h3>
+				<div class="progressBar">
+					<div class="progress" style="width: 70%;"></div>
+				</div>  
+			</li>
+			<li>
+				<h3>
+					Javascript
+				</h3>
+				<div class="progressBar">
+					<div class="progress" style="width:65%;"></div>
+				</div>  
+			</li>
+			<li>
+				<h3>
+					jQuery
+				</h3>
+				<div class="progressBar">
+					<div class="progress" style="width:60%;"></div>
+				</div>  
+			</li>
+			<li>
+				<h3>
+					Vue.js
+				</h3>
+				<div class="progressBar">
+					<div class="progress" style="width:75%;"></div>
+				</div>  
+			</li>
+			<li>
+				<h3>
+					React
+				</h3>
+				<div class="progressBar">
+					<div class="progress" style="width:80%;"></div>
+				</div>  
+			</li>
+			<li>
+				<h3>
+					HTTP
+				</h3>
+				<div class="progressBar">
+					<div class="progress" style="75%;"></div>
+				</div>  
+			</li>
+		  </ol>
+	  </section>
+	  <section data-x id="siteWorks" class="portfolio">
+		  <h2>作品集</h2>
+			<!-- 变为轮播 -->
+						<!-- Slider main container -->
+			<div id="mySlides">
+				<div class="swiper-container">
+				<!-- Additional required wrapper -->
+				<div class="swiper-wrapper">
+						<!-- Slides -->
+					<img src="./img/项目作品/nav.png" class="swiper-slide">
+					<img src="./img/项目作品/canvas.jpg" class="swiper-slide">
+					<img src="./img/项目作品/apple-style-slide.png" class="swiper-slide">
+				</div>
+				<!-- If we need pagination -->
+				<div class="swiper-pagination"></div>
+				</div>
+				<!-- If we need navigation buttons -->
+				<div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>
+			</div>
+		</section>
+		<section class="message">
+			<h2>留言</h2>
+			<ol id="messageList"></ol>
+			<form id="postMessageForm" style="width:700px;margin:50px auto;">
+				<label for="">姓名</label>
+				<input type="text" name="name">
+				<label for="">内容</label>
+				<input type="text" name="content">
+				<input type="submit" value="提交">
+			</form>
+		</section>
+	  <script src='https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.2.0/Tween.min.js'></script>				
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.5/js/swiper.min.js"></script>
+		<script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.0/dist/av-min.js"></script>
+		<script src="./js/base/Model.js"></script>
+		<script src="./js/base/View.js"></script>
+		<script src="./js/base/Controller.js"></script>
+		<!-- 模块化 -->
+		<script src="./js/init-swiper.js"></script>
+		<script src="./js/auto-slide-up.js"></script>
+		<script src="./js/sticky-topbar.js"></script>
+		<script src="./js/smoosthly-navigation.js"></script>
+		<script src="./js/message.js"></script>
+  </body>
+</html>
